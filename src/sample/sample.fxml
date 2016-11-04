@@ -8,19 +8,41 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 
-
-<GridPane alignment="center" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="sample.Controller">
+<GridPane alignment="CENTER" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <columnConstraints>
       <ColumnConstraints />
       <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints maxWidth="144.0" minWidth="65.0" prefWidth="72.0" />
+      <ColumnConstraints maxWidth="165.0" minWidth="28.0" prefWidth="28.0" />
+      <ColumnConstraints maxWidth="149.0" minWidth="29.0" prefWidth="32.0" />
+      <ColumnConstraints maxWidth="270.0" minWidth="15.0" prefWidth="27.0" />
+      <ColumnConstraints maxWidth="447.0" minWidth="86.0" prefWidth="435.0" />
    </columnConstraints>
    <rowConstraints>
       <RowConstraints />
       <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
    </rowConstraints>
    <children>
-      <Button mnemonicParsing="false" text="Button" />
-      <Button mnemonicParsing="false" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <Button fx:id="loadSifDatButton" mnemonicParsing="false" text="Naloži šif. txt datoteko..." GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <Button fx:id="loadRefDatButton" mnemonicParsing="false" text="Naloži ref. txt datoteko..." GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <Button fx:id="saveFinalDatButton" mnemonicParsing="false" text="Shrani novo datoteko..." GridPane.columnIndex="7" GridPane.rowIndex="1" GridPane.columnSpan="3"/>
+      <Button fx:id="runAnalyzerButton" mnemonicParsing="false" text="Frekvenčna analiza!" textFill="#eb0404" GridPane.columnSpan="3" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+      <TextArea fx:id="sifDatContent" prefHeight="400.0" prefWidth="300.0" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+      <TextArea fx:id="refDatContent" prefHeight="400.0" prefWidth="300.0" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+      <TextArea fx:id="finalDat" prefHeight="353.0" prefWidth="370.0" GridPane.columnIndex="4" GridPane.columnSpan="5" GridPane.rowIndex="2" GridPane.rowSpan="3" />
+      <Label text="Referenčno besedilo" GridPane.rowIndex="3" />
+      <Label text="Šifrirano besedilo" GridPane.rowIndex="1" />
 
+      <Label text="Zamenjaj:" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+      <TextField prefHeight="26.0" prefWidth="62.0" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+      <Label text="s/z:" GridPane.columnIndex="6" GridPane.rowIndex="5" />
+      <TextField GridPane.columnIndex="7" GridPane.rowIndex="5" />
+      <Button fx:id="changeButton" mnemonicParsing="false" text="Zamenjaj" GridPane.columnIndex="8" GridPane.rowIndex="5" />
    </children>
 </GridPane>
