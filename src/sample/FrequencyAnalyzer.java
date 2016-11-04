@@ -47,6 +47,7 @@ public class FrequencyAnalyzer {
 
 
         }
-        return null;
+        return decryptedText.toString();
     }
+
 }

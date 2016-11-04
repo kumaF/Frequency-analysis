@@ -33,8 +33,8 @@
       <Button fx:id="loadRefDatButton" mnemonicParsing="false" text="Naloži ref. txt datoteko..." GridPane.columnIndex="1" GridPane.rowIndex="3" />
       <Button fx:id="saveFinalDatButton" mnemonicParsing="false" text="Shrani novo datoteko..." GridPane.columnIndex="7" GridPane.rowIndex="1" GridPane.columnSpan="3"/>
       <Button fx:id="runAnalyzerButton" mnemonicParsing="false" text="Frekvenčna analiza!" textFill="#eb0404" GridPane.columnSpan="3" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-      <TextArea fx:id="sifDatContent" prefHeight="400.0" prefWidth="300.0" GridPane.columnSpan="2" GridPane.rowIndex="4" />
-      <TextArea fx:id="refDatContent" prefHeight="400.0" prefWidth="300.0" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+      <TextArea fx:id="refDatContent" prefHeight="400.0" prefWidth="300.0" GridPane.columnSpan="2" GridPane.rowIndex="4" />
+      <TextArea fx:id="sifDatContent" prefHeight="400.0" prefWidth="300.0" GridPane.columnSpan="2" GridPane.rowIndex="2" />
       <TextArea fx:id="finalDat" prefHeight="353.0" prefWidth="370.0" GridPane.columnIndex="4" GridPane.columnSpan="5" GridPane.rowIndex="2" GridPane.rowSpan="3" />
       <Label text="Referenčno besedilo" GridPane.rowIndex="3" />
       <Label text="Šifrirano besedilo" GridPane.rowIndex="1" />

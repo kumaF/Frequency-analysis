@@ -59,4 +59,17 @@ public class Factory {
 
         return indexesArray;
     }
+
+    public static String changeTwoCharsInString(char first,char second,String string){
+        StringBuilder newString = new StringBuilder(string);
+
+        for (Integer index:Factory.getIndexOfArray(string,first)){
+            newString.setCharAt(index,second);
+        }
+        for (Integer index:Factory.getIndexOfArray(string,second)){
+            newString.setCharAt(index,first);
+        }
+
+        return newString.toString();
+    }
 }
