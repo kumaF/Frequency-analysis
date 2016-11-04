@@ -20,8 +20,11 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-        Factory.getFileContentString("1referencna_datoteka.txt");
-        Factory.saveTextToFile("test.txt","asdasdasd");
+
+        Message messa_ref = new Message("1referencna_datoteka.txt");
+        Message messa_sif = new Message("1sifrirana_datoteka.txt");
+        String decriptedM = FrekvencniAnalizator.decrypt(messa_ref,messa_sif);
+
         launch(args);
 
     }
