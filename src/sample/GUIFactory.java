@@ -26,4 +26,20 @@ public class GUIFactory {
 
         return "Error";
     }
+
+    public static File saveFileDialog (Stage stage) {
+        FileChooser fileChooser = new FileChooser();
+
+        //Set extension filter
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");
+        fileChooser.getExtensionFilters().add(extFilter);
+
+        //Show save file dialog
+        File file = fileChooser.showSaveDialog(stage);
+
+        if (file != null) {
+            return file;
+        }
+        return null;
+    }
 }

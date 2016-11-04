@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -17,18 +18,15 @@ public class Main extends Application {
 
     protected Message messa_ref;
     protected Message messa_sif;
-    //protected String decriptedM = FrequencyAnalyzer.decrypt(messa_sif,messa_ref);
+    protected String decriptedMsg;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("Florijan Klezin-Frekvenčna analiza");
-        Scene mainScene = new Scene(root, 400, 375);
+        Scene mainScene = new Scene(root, 1000, 800);
 
 
-
-        Button saveFinalDatButton = (Button) mainScene.lookup("#saveFinalDatButton");
-        Button runAnalyzerButton = (Button) mainScene.lookup("#runAnalyzerButton");
 
         Button loadSifDatButton = (Button) mainScene.lookup("#loadSifDatButton");
         TextArea sifDatContent = (TextArea) mainScene.lookup("#sifDatContent");
@@ -52,9 +50,39 @@ public class Main extends Application {
             }
         });
 
+        TextArea finalDat = (TextArea) mainScene.lookup("#finalDat");
+        Button runAnalyzerButton = (Button) mainScene.lookup("#runAnalyzerButton");
+        runAnalyzerButton.addEventFilter(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                decriptedMsg=FrequencyAnalyzer.decrypt(messa_sif,messa_ref);
+                finalDat.setText(decriptedMsg);
+            }
+        });
 
 
+        Button changeButton = (Button) mainScene.lookup("#changeButton");
+        TextField changeLet1 = (TextField) mainScene.lookup("#changeLet1");
+        TextField changeLet2 = (TextField) mainScene.lookup("#changeLet2");
+        changeButton.addEventFilter(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                char first  = changeLet1.getText().charAt(0);
+                char second = changeLet2.getText().charAt(0);
+                decriptedMsg=Factory.changeTwoCharsInString(first,second,decriptedMsg);
+                finalDat.setText(decriptedMsg);
+            }
+        });
 
+        Button saveFinalDatButton = (Button) mainScene.lookup("#saveFinalDatButton");
+        saveFinalDatButton.addEventFilter(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                //@TODO
+                File newFile = GUIFactory.saveFileDialog(primaryStage);
+                Factory.saveFile(decriptedMsg,newFile);
+            }
+        });
 
         primaryStage.setScene(mainScene);
         primaryStage.show();

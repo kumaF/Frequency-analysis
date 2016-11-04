@@ -1,10 +1,10 @@
 package sample;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by fklezin on 3.11.2016.
@@ -71,5 +71,18 @@ public class Factory {
         }
 
         return newString.toString();
+    }
+
+    public static boolean saveFile(String content, File file){
+        try {
+            FileWriter fileWriter = new FileWriter(file);
+            fileWriter.write(content);
+            fileWriter.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return true;
     }
 }

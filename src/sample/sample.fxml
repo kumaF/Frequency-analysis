@@ -40,9 +40,9 @@
       <Label text="Šifrirano besedilo" GridPane.rowIndex="1" />
 
       <Label text="Zamenjaj:" GridPane.columnIndex="4" GridPane.rowIndex="5" />
-      <TextField prefHeight="26.0" prefWidth="62.0" GridPane.columnIndex="5" GridPane.rowIndex="5" />
+      <TextField fx:id="changeLet1" prefHeight="26.0" prefWidth="62.0" GridPane.columnIndex="5" GridPane.rowIndex="5" />
       <Label text="s/z:" GridPane.columnIndex="6" GridPane.rowIndex="5" />
-      <TextField GridPane.columnIndex="7" GridPane.rowIndex="5" />
+      <TextField fx:id="changeLet2" GridPane.columnIndex="7" GridPane.rowIndex="5" />
       <Button fx:id="changeButton" mnemonicParsing="false" text="Zamenjaj" GridPane.columnIndex="8" GridPane.rowIndex="5" />
    </children>
 </GridPane>
