@@ -1,7 +1,6 @@
 package sample;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 /**
  * Created by fklezin on 3.11.2016.
@@ -9,14 +8,16 @@ import java.util.Map;
 public class Message {
     private String originalText;
     private String text;
+    private String decryptedText;
     private String filepath;
     private ArrayList<Item> frequencyList;
+
 
     public Message (String filepath){
         this.filepath = filepath;
         this.originalText = Factory.getFileContentString(this.filepath);
         this.text = originalText.toLowerCase();
-        this.frequencyList = FrekvencniAnalizator.getCharFrequency(this.text);
+        this.frequencyList = FrequencyAnalyzer.getCharFrequency(this.text);
     }
 
     public String getOriginalText() {
@@ -49,5 +50,13 @@ public class Message {
 
     public void setFrequencyList(ArrayList<Item> frequencyList) {
         this.frequencyList = frequencyList;
+    }
+
+    public String getDecryptedText() {
+        return decryptedText;
+    }
+
+    public void setDecryptedText(String decryptedText) {
+        this.decryptedText = decryptedText;
     }
 }

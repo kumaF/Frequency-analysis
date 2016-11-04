@@ -3,6 +3,7 @@ package sample;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -36,5 +37,26 @@ public class Factory {
         }
 
         return true;
+    }
+
+    public static ArrayList<Integer> getIndexOfArray (String string,char character){
+        ArrayList<Integer> indexesArray = new ArrayList<Integer>();
+
+        int fromIndex=0;
+        boolean dowhile = true;
+        do {
+            int indexOfChar=string.indexOf(character,fromIndex);
+
+            if (indexOfChar==-1){
+                dowhile=false;
+                }
+            else{
+                indexesArray.add(indexOfChar);
+                fromIndex=indexOfChar+1;
+            }
+
+        }while (dowhile);
+
+        return indexesArray;
     }
 }

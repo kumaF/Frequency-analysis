@@ -9,7 +9,7 @@ import java.util.HashMap;
 /**
  * Created by fklezin on 3.11.2016.
  */
-public class FrekvencniAnalizator {
+public class FrequencyAnalyzer {
 
     private static final char [] alphabetsLowercase = {'a','b','c','č','d','e','f','g','h','i','j','k','l','m','n','o','p','r','s','š','t','u','v','z','ž'};
     private final String alphabetsUppercase = "ABCČDEFGHIJKLMNOPRSŠTUVZŽ";
@@ -32,8 +32,21 @@ public class FrekvencniAnalizator {
         return freqencyList;
     }
 
-    public static String decrypt (Message msg1, Message msg2){
+    public static String decrypt (Message encryptedMsg, Message referenceMsg){
+        StringBuilder decryptedText= new StringBuilder(encryptedMsg.getText());
 
+
+        for (int i=0 ; i<encryptedMsg.getFrequencyList().size(); i++){
+            Character encLetter=encryptedMsg.getFrequencyList().get(i).getLetter();
+            Character refLetter=referenceMsg.getFrequencyList().get(i).getLetter();
+
+            for (Integer index:Factory.getIndexOfArray(encryptedMsg.getText(),encLetter)){
+                decryptedText.setCharAt(index,refLetter);
+            }
+
+
+
+        }
         return null;
     }
 }
