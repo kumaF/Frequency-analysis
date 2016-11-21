@@ -29,7 +29,11 @@ public class FrequencyAnalyzer {
         }
 
         Collections.sort(freqencyList);
+        String l=""; for (Item a: freqencyList){     l+=a.getLetter()+"="+a.getFrequency()+" ; "; }
+
         return freqencyList;
+
+
     }
 
     public static String decrypt (Message encryptedMsg, Message referenceMsg){
